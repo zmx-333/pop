@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://localhost:8083/springboot_day08/js/jquery-2.2.4.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn").click(function(){
+			$.ajax({
+				   "type": "POST",
+				   "url": "http://localhost:8083/springboot_day08/helloController/handle1",
+				   "data": {"time":new Date().getTime()},
+				   "success": function(result){
+					   alert(result.id+"----"+result.name+"---"+result.age+"---"+result.birth);
+				   }
+			});
+			
+		});
+		
+		$("#btn2").click(function(){
+			$.ajax({
+				   "type": "POST",
+				   "url": "http://localhost:8083/springboot_day08/helloController/handle2",
+				   "data": {"time":new Date().getTime()},
+				   "success": function(result){
+					  alert(result);
+				   },
+				   "xhrFields": {
+				        withCredentials: true
+				   }
+			});
+		});
+		
+		
+		$("#btn3").click(function(){
+			$.ajax({
+				   "type": "POST",
+				   "url": "http://localhost:8083/springboot_day08/helloController/handle3",
+				   "data": {"time":new Date().getTime()},
+				   "success": function(result){
+					  alert(result);
+				   },
+				   "xhrFields": {
+				        withCredentials: true
+				   }
+			});
+		});
+		
+	});
+
+</script>
+</head>
+<body>
+<button id="btn">点击一下</button>
+<br />
+<button id="btn2">点击一下2</button>
+<br />
+<button id="btn3">点击一下3</button>
+</body>
+</html>
